@@ -1,3 +1,9 @@
+window.addEventListener("load", async () => {
+  await initDataTable();
+});
+
+/**------------ESTA PARTA VA A HACER PARA LAS FUNCIONES DEL PRODUCTOS DE VENTA --------------------- */
+
 let dataTable;
 let dataTableIsInitialized = false;
 
@@ -5,9 +11,9 @@ const dataTableOptions = {
   //scrollX: "2000px",
   lengthMenu: [5, 10, 15, 20, 100, 200, 500],
   columnDefs: [
-    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
-    { orderable: false, targets: [5, 6] },
-    { searchable: false, targets: [1] }
+    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6, 7] },
+    { orderable: false, targets: [6, 7] },
+    { searchable: false, targets: [1] },
     //{ width: "50%", targets: [0] }
   ],
   pageLength: 5,
@@ -24,9 +30,9 @@ const dataTableOptions = {
       first: "Primero",
       last: "Último",
       next: "Siguiente",
-      previous: "Anterior"
-    }
-  }
+      previous: "Anterior",
+    },
+  },
 };
 
 const initDataTable = async () => {
@@ -36,7 +42,7 @@ const initDataTable = async () => {
 
   await listUsers();
 
-  dataTable = $("#datatable_users").DataTable(dataTableOptions);
+  dataTable = $("#datatable_ventas").DataTable(dataTableOptions);
 
   dataTableIsInitialized = true;
 };
@@ -56,16 +62,23 @@ const listUsers = async () => {
             <td>${user.address.city}</td>
             <td>${user.company.name}</td>
             <td><i class="fa-solid fa-check" style="color: green;"></i></td>
+            <td>  <button class="btn btn-sm btn-primary editar" data-user-id="${
+              user.id
+            }"><i class="fa-solid fa-pencil"></i></button></td>
             <td>
-                <button class="btn btn-sm btn-primary editar" data-user-id="${user.id}"><i class="fa-solid fa-pencil"></i></button>
-                <button class="btn btn-sm btn-danger eliminar" data-user-id="${user.id}"><i class="fa-solid fa-trash-can"></i></button>
+              
+                <button class="btn btn-sm btn-danger eliminar" data-user-id="${
+                  user.id
+                }"><i class="fa-solid fa-trash-can"></i></button>
             </td>
         </tr>`;
     });
-    tableBody_users.innerHTML = content;
+    tableBody_ventas.innerHTML = content;
 
     // Agregar eventos click a los botones "editar" y "eliminar"
-    document.getElementById("botonAñadir").addEventListener("click", showAgregarModal);
+    document
+      .getElementById("botonAñadir")
+      .addEventListener("click", showAgregarModal);
     const editarButtons = document.querySelectorAll(".editar");
     const eliminarButtons = document.querySelectorAll(".eliminar");
 
@@ -83,7 +96,9 @@ const listUsers = async () => {
 
 const getUserById = async (userId) => {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
     const user = await response.json();
     return user;
   } catch (error) {
@@ -93,7 +108,7 @@ const getUserById = async (userId) => {
 };
 
 const showAgregarModal = () => {
-  $('#agregarModal').modal('show');
+  $("#agregarModal").modal("show");
 };
 
 const handleAgregarButtonClick = (event) => {
@@ -108,13 +123,10 @@ const handleEditarButtonClick = (event) => {
   console.log("Editar usuario con ID:", userId);
 };
 
-
 const handleEliminarButtonClick = (event) => {
   const userId = event.target.dataset.userId;
   // Lógica para eliminar el usuario con el ID especificado
   console.log("Eliminar usuario con ID:", userId);
 };
 
-window.addEventListener("load", async () => {
-  await initDataTable();
-});
+/**------------ESTA PARTA VA A HACER PARA LAS FUNCIONES DEL PRODUCTOS DE RENTA --------------------- */

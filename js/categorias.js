@@ -22,6 +22,7 @@ const dataTableOptions = {
   lengthMenu: [5, 10, 15, 20, 100, 200, 500],
   columnDefs: [
     { className: "centered", targets: [0, 1, 2, 3, 4, 5] },
+    { className: "centered", targets: [5] },
     { orderable: false, targets: [4, 5] },
     { searchable: false, targets: [1] },
     //{ width: "50%", targets: [0] }
@@ -82,13 +83,15 @@ const listUsers = async () => {
             <td>${index + 1}</td>
             <td>${categoria.parentId}</td>
             <td>${categoria.label}</td>
-            <td><img src= "${categoria.imgPath}"  class="img-fluid"></img></td>
-            <td><button type="button" class="btn btn-primary" onclick="editarModal(this)" data-id ="${
+            <td><img src= "${
+              categoria.imgPath
+            }"    style=" height: 200px;"></img></td>
+            <td><button type="button" class="btn btn-primary" onclick="editarModal(this)"  data-id ="${
               categoria.id
-            }"><i class="fa-solid fa-pencil"></i>
+            }"><i class="fa-solid fa-pencil fa-2x"></i>
             </button></td>
-            <td>
-            <button type="button" class="btn btn-danger" onclick="eliminarModal(this)" data-id ="${
+            <td  style=" height: 200px;" >
+            <button type="button" class="btn btn-danger fa-2x" onclick="eliminarModal(this)" data-id ="${
               categoria.id
             }"><i class="fa-solid fa-trash-can"></i>
             </button>
@@ -97,6 +100,7 @@ const listUsers = async () => {
     });
     tableBody_users.innerHTML = content;
   } catch (ex) {
+    console.log(ex);
     alert(ex);
   }
 };

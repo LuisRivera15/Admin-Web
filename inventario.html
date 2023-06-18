@@ -1,166 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
     <title>Medical Santa Cruz</title>
     <!-- Bootstrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
     <!-- DataTable -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+    />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/datatable.css" />
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
     <!--<link rel="stylesheet" href="catalogo.css">-->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-</head>
-<style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
     a {
-        text-decoration: none;
+      text-decoration: none;
     }
-</style>
+  </style>
 
-<body>
-
-    <input type="checkbox" id="nav-toggle">
+  <body>
+    <input type="checkbox" id="nav-toggle" />
     <div class="sidebar">
-        <div class="sidebar-brand">
-            <h2><span class="las la-briefcase-medical"></span><span class="fs-3">Medical Santa Cruz</span></h2>
-        </div>
+      <div class="sidebar-brand">
+        <h2>
+          <span class="las la-briefcase-medical"></span
+          ><span class="fs-3">Medical Santa Cruz</span>
+        </h2>
+      </div>
 
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="index.html"><span class="las la-home"></span>
-                        <span>Inicio</span></a>
-                </li>
-                <li>
-                    <a href="catalogo.html"><span class="las la-store-alt"></span>
-                        <span>Catálogo</span></a>
-                </li>
-                <li>
-                    <a href="categorias.html"><span class="las la-icons"></span>
-                        <span>Categorías</span></a>
-                </li>
-                <li>
-                    <a href="" class="active"><span class="las la-clipboard-list"></span>
-                        <span>Inventario</span></a>
-                </li>
-                <li>
-                    <a href="pedidos.html"><span class="las la-shopping-bag"></span>
-                        <span>Pedidos</span></a>
-                </li>
-                <li>
-                    <a href="editarInfo.html"><span class="las la-edit"></span>
-                        <span>Editar Informacion</span></a>
-                </li>
-                <li>
-                    <a href="usuarios.html"><span class="las la-user-circle"></span>
-                        <span>Usuarios</span></a>
-                </li>
-                <li>
-                    <a id="logout" href=""><span class="las la-sign-out-alt"></span>
-                        <span>Salir</span></a>
-                </li>
-            </ul>
-        </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li>
+            <a href="index.html"
+              ><span class="las la-home"></span> <span>Inicio</span></a
+            >
+          </li>
+          <li>
+            <a href="catalogo.html"
+              ><span class="las la-store-alt"></span> <span>Catálogo</span></a
+            >
+          </li>
+          <li>
+            <a href="categorias.html"
+              ><span class="las la-icons"></span> <span>Categorías</span></a
+            >
+          </li>
+          <li>
+            <a href="" class="active"
+              ><span class="las la-clipboard-list"></span>
+              <span>Inventario</span></a
+            >
+          </li>
+          <li>
+            <a href="pedidos.html"
+              ><span class="las la-shopping-bag"></span> <span>Pedidos</span></a
+            >
+          </li>
+          <li>
+            <a href="editarInfo.html"
+              ><span class="las la-edit"></span>
+              <span>Editar Informacion</span></a
+            >
+          </li>
+          <li>
+            <a href="usuarios.html"
+              ><span class="las la-user-circle"></span> <span>Usuarios</span></a
+            >
+          </li>
+          <li>
+            <a id="logout" href=""
+              ><span class="las la-sign-out-alt"></span> <span>Salir</span></a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="main-content">
-        <header>
-            <h2>
-                <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label>
-                Inventario
-            </h2>
+      <header>
+        <h2>
+          <label for="nav-toggle">
+            <span class="las la-bars"></span>
+          </label>
+          Inventario
+        </h2>
 
-            <div class="user-wrapper">
-                <img src="" width="" height="" alt="">
-                <div>
-                    <h4>Ing. Erasmo</h4>
-                    <small>Administrador</small>
-                </div>
+        <div class="user-wrapper">
+          <img src="" width="" height="" alt="" />
+          <div>
+            <h4>Ing. Erasmo</h4>
+            <small>Administrador</small>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Modal AGREGAR-->
+        <div
+          class="modal fade"
+          id="agregarModal"
+          tabindex="-1"
+          aria-labelledby="agregarModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="agregarModalLabel">
+                  Agregar Producto
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <!-- Contenido del formulario de agregar -->
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="guardarButton"
+                >
+                  Guardar
+                </button>
+              </div>
             </div>
-        </header>
+          </div>
+        </div>
+        <div class="container my-4">
+          <div class="col-12">
+            <h2 class="text-center w-100">PRODUCTOS DE VENTA</h2>
+          </div>
+          <button id="botonAñadir" type="button" class="btn btn-warning">
+            <i class="fa-solid fa-file-circle-plus"></i> Agregar producto
+          </button>
+        </div>
 
-        <main>
-            <div class="container my-4">
-                <button id="botonAñadir" type="button" class="btn btn-warning"><i
-                        class="fa-solid fa-file-circle-plus"></i> Agregar producto</button>
+        <div class="container my-4">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <table id="datatable_ventas" class="table table-striped">
+                <caption>
+                  Tabla de Productos de Venta
+                </caption>
+                <thead>
+                  <tr>
+                    <th class="centered">#</th>
+                    <th class="centered">Nombre</th>
+                    <th class="centered">Precio</th>
+                    <th class="centered">Stock</th>
+                    <th class="centered">Opciones</th>
+                    <th class="centered">Status</th>
+                    <th class="centered"></th>
+                    <th class="centered"></th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody_ventas"></tbody>
+              </table>
             </div>
+          </div>
+        </div>
 
-            <!-- Modal AGREGAR-->
-            <div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="agregarModalLabel">Agregar Producto</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Contenido del formulario de agregar -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary" id="guardarButton">Guardar</button>
-                        </div>
-                    </div>
-                </div>
+        <div class="container my-4">
+          <div class="col-12">
+            <h2 class="text-center w-100">PRODUCTOS DE RENTA</h2>
+          </div>
+          <button id="botonAñadir" type="button" class="btn btn-warning">
+            <i class="fa-solid fa-file-circle-plus"></i> Agregar producto
+          </button>
+        </div>
+
+        <div class="container my-4">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <table id="datatable_renta" class="table table-striped">
+                <caption>
+                  Tabla de Productos de Renta
+                </caption>
+                <thead>
+                  <tr>
+                    <th class="centered">#</th>
+                    <th class="centered">Nombre</th>
+                    <th class="centered">Precio</th>
+                    <th class="centered">Duración</th>
+                    <th class="centered">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody_renta"></tbody>
+              </table>
             </div>
+          </div>
+        </div>
+      </main>
+      <!-- Bootstrap-->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"
+      ></script>
+      <!-- jQuery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <!-- DataTable -->
+      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
-            <div class="container my-4">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <table id="datatable_users" class="table table-striped">
-                            <caption>
-                                Tabla de Inventario
-                            </caption>
-                            <thead>
-                                <tr>
-                                    <th class="centered">#</th>
-                                    <th class="centered">Name</th>
-                                    <th class="centered">Email</th>
-                                    <th class="centered">City</th>
-                                    <th class="centered">Company</th>
-                                    <th class="centered">Status</th>
-                                    <th class="centered">Options</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody_users"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <!-- Bootstrap-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"></script>
-        <!-- jQuery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <!-- DataTable -->
-        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-
-        <script src="js/inventario.js"></script>
-        <script src="js/index.js"></script>
+      <script src="js/inventario.js"></script>
+      <script src="js/index.js"></script>
     </div>
-</body>
-
+  </body>
 </html>
