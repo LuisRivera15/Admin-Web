@@ -179,12 +179,13 @@ $("#agregarFormulario").submit(async function (event) {
   let direccionImagen;
 
   try {
-    const storage = firebase.storage();
     const storageRef = storage.ref().child("categorias/" + imagenFile.name);
-    const url = await storageRef.getDownloadURL();
-    direccionImagen = url;
+    const snapshot = await storageRef.put(imagenFile);
+    console.log("Imagen subida correctamente");
+    direccionImagen = await storageRef.getDownloadURL();
+    console.log("URL de la imagen:", direccionImagen);
   } catch (error) {
-    console.error("Error al actualizar la imagen:", error);
+    console.error("Error: ", error);
   }
 
   const token = JSON.parse(sessionStorage.getItem("token"));
@@ -196,7 +197,7 @@ $("#agregarFormulario").submit(async function (event) {
     label: nombre,
     imgPath: direccionImagen,
   };
-
+  console.log(cuerpo);
   try {
     const response = await fetch("http://api.medicalsantacruz.com/categories", {
       headers: {
