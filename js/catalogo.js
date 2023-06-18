@@ -5,8 +5,8 @@ const dataTableOptions = {
   //scrollX: "2000px",
   lengthMenu: [5, 10, 15, 20, 100, 200, 500],
   columnDefs: [
-    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
-    { orderable: false, targets: [5, 6] },
+    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] },
+    { orderable: false, targets: [8, 9] },
     { searchable: false, targets: [1] }
     //{ width: "50%", targets: [0] }
   ],
@@ -48,7 +48,7 @@ const listUsers = async () => {
       categoryId: "390f513f-0520-11ee-86d1-0a002700000a"
     };
 
-    const response = await fetch("http://api.medicalsantacruz.com/products/cat", {
+    const response = await fetch("http://api.medicalsantacruz.com/catalogues/all", {
       method: "POST",
       body: JSON.stringify(requestPayload),
       headers: {
@@ -148,11 +148,11 @@ const listUsers = async () => {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    ...
+                    Seguro que quieres eliminar este producto?
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
                   </div>
                 </div>
               </div>

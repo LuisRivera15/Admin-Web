@@ -5,8 +5,8 @@ const dataTableOptions = {
   //scrollX: "2000px",
   lengthMenu: [5, 10, 15, 20, 100, 200, 500],
   columnDefs: [
-    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
-    { orderable: false, targets: [5, 6] },
+    { className: "centered", targets: [0, 1, 2, 3, 4, 5] },
+    { orderable: false, targets: [4 ,5] },
     { searchable: false, targets: [1] }
     //{ width: "50%", targets: [0] }
   ],
@@ -57,8 +57,91 @@ const listUsers = async () => {
             <td>${user.company.name}</td>
             <td><i class="fa-solid fa-check" style="color: green;"></i></td>
             <td>
-                <button class="btn btn-sm btn-primary editar" data-user-id="${user.id}"><i class="fa-solid fa-pencil"></i></button>
-                <button class="btn btn-sm btn-danger eliminar" data-user-id="${user.id}"><i class="fa-solid fa-trash-can"></i></button>
+            <!-- Button trigger modal EDITAR -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditar"><i class="fa-solid fa-pencil"></i>
+            </button>
+
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEliminar"><i class="fa-solid fa-trash-can"></i>
+            </button>
+            
+            <!-- Modal EDITAR-->
+            <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalEditarLabel">Editar Catalogo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <form>
+
+                    <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Model</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Brand</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">ImgPath</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Stock</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">DisconutPct</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Featured</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  
+
+                </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal ELIMINAR-->
+            <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalEliminarLabel">Eliminar Catalogo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Seguro que quieres eliminar esta categoria?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             </td>
         </tr>`;
     });
