@@ -252,7 +252,7 @@
                 <div class="col-12">
                     <h2 class="text-center w-100">PRODUCTOS DE VENTA</h2>
                 </div>
-                <button id="botonAñadir" type="button" class="btn btn-warning">
+                <button id="botonAñadir" type="button" class="btn btn-warning" onclick="abiriAgregarModal()">
                     <i class=" fa-solid fa-file-circle-plus"></i> Agregar producto
                 </button>
             </div>
@@ -329,7 +329,7 @@
                 <div class="col-12">
                     <h2 class="text-center w-100">PRODUCTOS DE RENTA</h2>
                 </div>
-                <button id="botonAñadir" type="button" class="btn btn-warning">
+                <button id="botonAñadir" type="button" class="btn btn-warning" onclick="abiriAgregarModal()">
                     <i class="fa-solid fa-file-circle-plus"></i> Agregar producto
                 </button>
             </div>
