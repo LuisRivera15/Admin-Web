@@ -7,7 +7,7 @@ const dataTableOptions = {
   columnDefs: [
     { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
     { orderable: false, targets: [5, 6] },
-    { searchable: false, targets: [1] }
+    { searchable: false, targets: [1] },
     //{ width: "50%", targets: [0] }
   ],
   pageLength: 5,
@@ -24,9 +24,9 @@ const dataTableOptions = {
       first: "Primero",
       last: "Último",
       next: "Siguiente",
-      previous: "Anterior"
-    }
-  }
+      previous: "Anterior",
+    },
+  },
 };
 
 const initDataTable = async () => {
@@ -57,15 +57,21 @@ const listUsers = async () => {
             <td>${user.company.name}</td>
             <td><i class="fa-solid fa-check" style="color: green;"></i></td>
             <td>
-                <button class="btn btn-sm btn-primary editar" data-user-id="${user.id}"><i class="fa-solid fa-pencil"></i></button>
-                <button class="btn btn-sm btn-danger eliminar" data-user-id="${user.id}"><i class="fa-solid fa-trash-can"></i></button>
+                <button class="btn btn-sm btn-primary editar" data-user-id="${
+                  user.id
+                }"><i class="fa-solid fa-pencil"></i></button>
+                <button class="btn btn-sm btn-danger eliminar" data-user-id="${
+                  user.id
+                }"><i class="fa-solid fa-trash-can"></i></button>
             </td>
         </tr>`;
     });
     tableBody_users.innerHTML = content;
 
     // Agregar eventos click a los botones "editar" y "eliminar"
-    document.getElementById("botonAñadir").addEventListener("click", showAgregarModal);
+    document
+      .getElementById("botonAñadir")
+      .addEventListener("click", handleAgregarButtonClick);
     const editarButtons = document.querySelectorAll(".editar");
     const eliminarButtons = document.querySelectorAll(".eliminar");
 
@@ -83,7 +89,9 @@ const listUsers = async () => {
 
 const getUserById = async (userId) => {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
     const user = await response.json();
     return user;
   } catch (error) {
@@ -92,27 +100,16 @@ const getUserById = async (userId) => {
   }
 };
 
-const showAgregarModal = () => {
-  $('#agregarModal').modal('show');
-};
-
 const handleAgregarButtonClick = (event) => {
-  // Aquí puedes agregar la lógica para manejar el evento click del botón "Agregar"
-  showAgregarModal();
-  console.log("Botón Agregar clickeado");
+  $("#modalAgregar").modal("show");
 };
 
 const handleEditarButtonClick = (event) => {
-  const userId = event.target.dataset.userId;
-  // Lógica para editar el usuario con el ID especificado
-  console.log("Editar usuario con ID:", userId);
+  $("#modalEditar").modal("show");
 };
 
-
 const handleEliminarButtonClick = (event) => {
-  const userId = event.target.dataset.userId;
-  // Lógica para eliminar el usuario con el ID especificado
-  console.log("Eliminar usuario con ID:", userId);
+  $("#modalEliminar").modal("show");
 };
 
 window.addEventListener("load", async () => {

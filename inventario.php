@@ -28,9 +28,9 @@
         rel="stylesheet" />
 </head>
 <style>
-    a {
-        text-decoration: none;
-    }
+a {
+    text-decoration: none;
+}
 </style>
 
 <body>
@@ -100,28 +100,43 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="agregarModalLabel">
-                                Agregar Categoria
+                                Agregar Producto
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form id="agregarFormulario">
                                 <div class="mb-3">
-                                    <label for="modalEditarParent" class="form-label">Parent:</label>
-                                    <input type="text" class="form-control" id="modalAgregarParent"
-                                        name="modalAgregarParent" value="00000000-0000-0000-0000-000000000000"
-                                        readonly />
-
                                     <label for="modalAgregarNombre" class="form-label">Nombre:</label>
                                     <input type="text" class="form-control" id="modalAgregarNombre"
                                         name="modalAgregarNombre" required />
-                                </div>
 
-                                <label for="modalAgregarImg" class="form-label">Imagen:</label>
-                                <input type="file" class="form-control" id="modalAgregarImg" name="modalAgregarImg"
-                                    required />
-                                <img class="img-fluid rounded-circle p-3 w-50 mx-auto d-block" id="imgAgregar"
-                                    alt="Descripción de la imagen" />
+                                    <label for="modalAgregarCatalogueId" class="form-label">Categoría:</label>
+                                    <input type="text" class="form-control" id="modalAgregarCatalogueId"
+                                        name="modalAgregarCatalogueId" />
+
+                                    <label for="modalAgregarStock" class="form-label">Stock:</label>
+                                    <input type="text" class="form-control" id="modalAgregarStock"
+                                        name="modalAgregarStock" />
+
+                                    <label for="modalAgregarPrice" class="form-label">Precio:</label>
+                                    <input type="text" class="form-control" id="modalAgregarPrice"
+                                        name="modalAgregarPrice" />
+
+                                    <label for="modalAgregarCost" class="form-label">Costo:</label>
+                                    <input type="text" class="form-control" id="modalAgregarCost"
+                                        name="modalAgregarCost" />
+
+                                    <label for="modalAgregarDiscountPct" class="form-label">Descuento (%):</label>
+                                    <input type="text" class="form-control" id="modalAgregarDiscountPct"
+                                        name="modalAgregarDiscountPct" />
+
+                                    <label for="modalAgregarImg" class="form-label">Imagen:</label>
+                                    <input type="file" class="form-control" id="modalAgregarImg" name="modalAgregarImg"
+                                        required />
+                                    <img class="img-fluid rounded-circle p-3 w-50 mx-auto d-block" id="imgAgregar"
+                                        alt="Descripción de la imagen" />
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -135,6 +150,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- Modal EDITAR-->
             <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel"
@@ -236,8 +252,8 @@
                 <div class="col-12">
                     <h2 class="text-center w-100">PRODUCTOS DE VENTA</h2>
                 </div>
-                <button id="botonAñadir" type="button" class="btn btn-warning">
-                    <i class="fa-solid fa-file-circle-plus"></i> Agregar producto
+                <button id="botonAñadir" type="button" class="btn btn-warning" onclick="abiriAgregarModal()">
+                    <i class=" fa-solid fa-file-circle-plus"></i> Agregar producto
                 </button>
             </div>
 
@@ -293,7 +309,7 @@
                                     echo "<td class='centered'>$cost</td>";
                                     echo "<td class='centered'>$stock</td>";
                                     echo "<td class='centered'><img src='$imgPath' alt='Imagen del producto'></td>";
-                                    echo "<td class='centered' style='height: 200px;'><button type='button' class='btn btn-primary' data-id='$productId' onclick='openModal(this)'><i class='fa-solid fa-pencil fa-2x'></i></button></td>";
+                                    echo "<td class='centered' style='height: 200px;'><button type='button' class='btn btn-primary' data-id='$productId' onclick='openModalEditar(this)'><i class='fa-solid fa-pencil fa-2x'></i></button></td>";
                                     echo "<td class='centered'  style= 'height: 200px;'><button type='button' class='btn btn-danger fa-2xy'><i class='fa-solid fa-trash-can' data-id='$productId' onclick='openModalEliminar(this)'></i></button></td>";
                                     echo "</tr>";
 
@@ -386,7 +402,7 @@
         <!-- Bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-            </script>
+        </script>
         <!-- jQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- DataTable -->

@@ -46,7 +46,12 @@ const initDataTable = async () => {
   dataTableIsInitialized = true;
 };
 
-async function openModal(button) {
+function abiriAgregarModal() {
+  // Abrir el modal
+  $("#agregarModal").modal("show");
+}
+
+async function openModalEditar(button) {
   const productId = button.getAttribute("data-id");
 
   // Abrir el modal

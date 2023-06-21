@@ -129,6 +129,469 @@
       </header>
 
       <main>
+        <!-- Modal AGREGAR-->
+        <div
+          class="modal fade"
+          id="agregarModal"
+          tabindex="-1"
+          aria-labelledby="agregarModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="agregarModalLabel">
+                  Agregar Pedido
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="agregarFormulario">
+                  <div class="mb-3">
+                    <label for="modalAgregarCustomerId" class="form-label"
+                      >CustomerId:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarCustomerId"
+                      name="modalAgregarCustomerId"
+                      required
+                    />
+
+                    <label for="modalAgregarName" class="form-label"
+                      >Nombre:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarName"
+                      name="modalAgregarName"
+                      required
+                    />
+
+                    <label for="modalAgregarFirstSurname" class="form-label"
+                      >Primer Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarFirstSurname"
+                      name="modalAgregarFirstSurname"
+                      required
+                    />
+
+                    <label for="modalAgregarLastSurname" class="form-label"
+                      >Segundo Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarLastSurname"
+                      name="modalAgregarLastSurname"
+                      required
+                    />
+
+                    <label for="modalAgregarEmail" class="form-label"
+                      >Email:</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="modalAgregarEmail"
+                      name="modalAgregarEmail"
+                      required
+                    />
+
+                    <label for="modalAgregarMobile" class="form-label"
+                      >Móvil:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarMobile"
+                      name="modalAgregarMobile"
+                      required
+                    />
+
+                    <label for="modalAgregarPhone" class="form-label"
+                      >Teléfono:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarPhone"
+                      name="modalAgregarPhone"
+                      required
+                    />
+
+                    <label
+                      for="modalAgregarReservationItemId"
+                      class="form-label"
+                      >ReservationItemId:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarReservationItemId"
+                      name="modalAgregarReservationItemId"
+                      required
+                    />
+
+                    <label for="modalAgregarQuantity" class="form-label"
+                      >Quantity:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarQuantity"
+                      name="modalAgregarQuantity"
+                      required
+                    />
+
+                    <label for="modalAgregarPrice" class="form-label"
+                      >Price:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarPrice"
+                      name="modalAgregarPrice"
+                      required
+                    />
+
+                    <label for="modalAgregarDiscountPct" class="form-label"
+                      >DiscountPct:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarDiscountPct"
+                      name="modalAgregarDiscountPct"
+                      required
+                    />
+
+                    <label
+                      for="modalAgregarReservationStatusId"
+                      class="form-label"
+                      >ReservationStatusId:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarReservationStatusId"
+                      name="modalAgregarReservationStatusId"
+                      required
+                    />
+
+                    <label for="modalAgregarCode" class="form-label"
+                      >Code:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarCode"
+                      name="modalAgregarCode"
+                      required
+                    />
+
+                    <label for="modalAgregarStatusDate" class="form-label"
+                      >StatusDate:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarStatusDate"
+                      name="modalAgregarStatusDate"
+                      required
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="agregarBoton"
+                  form="agregarFormulario"
+                >
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal EDITAR-->
+        <div
+          class="modal fade"
+          id="modalEditar"
+          tabindex="-1"
+          aria-labelledby="modalEditarLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalEditarLabel">
+                  Editar Pedido
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="editarFormulario">
+                  <div class="mb-3">
+                    <label for="modalEditarCustomerId" class="form-label"
+                      >CustomerId:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarCustomerId"
+                      name="modalEditarCustomerId"
+                      required
+                    />
+
+                    <label for="modalEditarName" class="form-label"
+                      >Nombre:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarName"
+                      name="modalEditarName"
+                      required
+                    />
+
+                    <label for="modalEditarFirstSurname" class="form-label"
+                      >Primer Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarFirstSurname"
+                      name="modalEditarFirstSurname"
+                      required
+                    />
+
+                    <label for="modalEditarLastSurname" class="form-label"
+                      >Segundo Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarLastSurname"
+                      name="modalEditarLastSurname"
+                      required
+                    />
+
+                    <label for="modalEditarEmail" class="form-label"
+                      >Email:</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="modalEditarEmail"
+                      name="modalEditarEmail"
+                      required
+                    />
+
+                    <label for="modalEditarMobile" class="form-label"
+                      >Móvil:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarMobile"
+                      name="modalEditarMobile"
+                      required
+                    />
+
+                    <label for="modalEditarPhone" class="form-label"
+                      >Teléfono:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarPhone"
+                      name="modalEditarPhone"
+                      required
+                    />
+
+                    <label for="modalEditarReservationItemId" class="form-label"
+                      >ReservationItemId:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarReservationItemId"
+                      name="modalEditarReservationItemId"
+                      required
+                    />
+
+                    <label for="modalEditarQuantity" class="form-label"
+                      >Quantity:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarQuantity"
+                      name="modalEditarQuantity"
+                      required
+                    />
+
+                    <label for="modalEditarPrice" class="form-label"
+                      >Price:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarPrice"
+                      name="modalEditarPrice"
+                      required
+                    />
+
+                    <label for="modalEditarDiscountPct" class="form-label"
+                      >DiscountPct:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarDiscountPct"
+                      name="modalEditarDiscountPct"
+                      required
+                    />
+
+                    <label
+                      for="modalEditarReservationStatusId"
+                      class="form-label"
+                      >ReservationStatusId:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarReservationStatusId"
+                      name="modalEditarReservationStatusId"
+                      required
+                    />
+
+                    <label for="modalEditarCode" class="form-label"
+                      >Code:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarCode"
+                      name="modalEditarCode"
+                      required
+                    />
+
+                    <label for="modalEditarStatusDate" class="form-label"
+                      >StatusDate:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarStatusDate"
+                      name="modalEditarStatusDate"
+                      required
+                    />
+                  </div>
+                  <input type="hidden" id="pedidoId" name="pedidoId" value="" />
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  form="editarFormulario"
+                >
+                  Guardar Cambios
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal ELIMINAR-->
+        <div
+          class="modal fade"
+          id="modalEliminar"
+          tabindex="-1"
+          aria-labelledby="modalEliminarLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalEliminarLabel">
+                  Eliminar Pedido
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                ¿Seguro que quieres eliminar el pedido
+                <strong id="nombrePedido"></strong> ?
+                <form id="eliminarFormulario">
+                  <div class="mb-3">
+                    <input
+                      type="hidden"
+                      class="form-control"
+                      id="modalEliminarId"
+                      name="modalEliminarId"
+                      readonly
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-danger"
+                  form="eliminarFormulario"
+                >
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="container my-4">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">

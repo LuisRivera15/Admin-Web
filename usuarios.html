@@ -138,15 +138,15 @@
         <!-- Modal AGREGAR-->
         <div
           class="modal fade"
-          id="agregarModal"
+          id="modalAgregar"
           tabindex="-1"
-          aria-labelledby="agregarModalLabel"
+          aria-labelledby="modalAgregarLabel"
           aria-hidden="true"
         >
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="agregarModalLabel">
+                <h1 class="modal-title fs-5" id="modalAgregarLabel">
                   Agregar Usuario
                 </h1>
                 <button
@@ -157,7 +157,75 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <!-- Contenido del formulario de agregar -->
+                <form id="agregarFormulario">
+                  <div class="mb-3">
+                    <label for="modalAgregarName" class="form-label"
+                      >Nombre:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarName"
+                      name="modalAgregarName"
+                      required
+                    />
+
+                    <label for="modalAgregarFirstSurname" class="form-label"
+                      >Primer Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarFirstSurname"
+                      name="modalAgregarFirstSurname"
+                      required
+                    />
+
+                    <label for="modalAgregarLastSurname" class="form-label"
+                      >Segundo Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalAgregarLastSurname"
+                      name="modalAgregarLastSurname"
+                      required
+                    />
+
+                    <label for="modalAgregarEmail" class="form-label"
+                      >Email:</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="modalAgregarEmail"
+                      name="modalAgregarEmail"
+                      required
+                    />
+
+                    <label for="modalAgregarPassword" class="form-label"
+                      >Contraseña:</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="modalAgregarPassword"
+                      name="modalAgregarPassword"
+                      required
+                    />
+
+                    <label for="modalAgregarRegistrationDate" class="form-label"
+                      >Fecha de Registro:</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="modalAgregarRegistrationDate"
+                      name="modalAgregarRegistrationDate"
+                      required
+                    />
+                  </div>
+                </form>
               </div>
               <div class="modal-footer">
                 <button
@@ -168,11 +236,188 @@
                   Cerrar
                 </button>
                 <button
-                  type="button"
+                  type="submit"
                   class="btn btn-primary"
-                  id="guardarButton"
+                  form="agregarFormulario"
                 >
                   Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal EDITAR-->
+        <div
+          class="modal fade"
+          id="modalEditar"
+          tabindex="-1"
+          aria-labelledby="modalEditarLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalEditarLabel">
+                  Editar Usuario
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="editarFormulario">
+                  <div class="mb-3">
+                    <label for="modalEditarId" class="form-label">Id:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarId"
+                      name="modalEditarId"
+                      required
+                    />
+
+                    <label for="modalEditarName" class="form-label"
+                      >Nombre:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarName"
+                      name="modalEditarName"
+                      required
+                    />
+
+                    <label for="modalEditarFirstSurname" class="form-label"
+                      >Primer Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarFirstSurname"
+                      name="modalEditarFirstSurname"
+                      required
+                    />
+
+                    <label for="modalEditarLastSurname" class="form-label"
+                      >Segundo Apellido:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="modalEditarLastSurname"
+                      name="modalEditarLastSurname"
+                      required
+                    />
+
+                    <label for="modalEditarEmail" class="form-label"
+                      >Email:</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="modalEditarEmail"
+                      name="modalEditarEmail"
+                      required
+                    />
+
+                    <label for="modalEditarPassword" class="form-label"
+                      >Contraseña:</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="modalEditarPassword"
+                      name="modalEditarPassword"
+                      required
+                    />
+
+                    <label for="modalEditarRegistrationDate" class="form-label"
+                      >Fecha de Registro:</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="modalEditarRegistrationDate"
+                      name="modalEditarRegistrationDate"
+                      required
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  form="editarFormulario"
+                >
+                  Guardar Cambios
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal ELIMINAR-->
+        <div
+          class="modal fade"
+          id="modalEliminar"
+          tabindex="-1"
+          aria-labelledby="modalEliminarLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalEliminarLabel">
+                  Eliminar Usuario
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                ¿Seguro que quieres eliminar al usuario
+                <strong id="nombreUsuario"></strong>?
+                <form id="eliminarFormulario">
+                  <div class="mb-3">
+                    <input
+                      type="hidden"
+                      class="form-control"
+                      id="modalEliminarId"
+                      name="modalEliminarId"
+                      readonly
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-danger"
+                  form="eliminarFormulario"
+                >
+                  Eliminar
                 </button>
               </div>
             </div>
