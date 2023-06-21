@@ -1,297 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
     <title>Medical Santa Cruz</title>
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
 
-</head>
-
-<style>a {text-decoration: none;} </style>
-<body>
-
-    <input type="checkbox" id="nav-toggle">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    <input type="checkbox" id="nav-toggle" />
     <div class="sidebar">
-        <div class="sidebar-brand">
-            <h2><span class="las la-briefcase-medical"></span><span class="fs-3">Medical Santa Cruz</span></h2>
-        </div>
+      <div class="sidebar-brand">
+        <h2>
+          <span class="las la-briefcase-medical"></span
+          ><span class="fs-3">Medical Santa Cruz</span>
+        </h2>
+      </div>
 
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="" class="active"><span class="las la-home"></span>
-                        <span>Inicio</span></a>
-                </li>
-                <li>
-                    <a href="catalogo.html"><span class="las la-store-alt"></span>
-                        <span>Catálogo</span></a>
-                </li>
-                <li>
-                    <a href="categorias.html"><span class="las la-icons"></span>
-                        <span>Categorías</span></a>
-                </li>
-                <li>
-                    <a href="inventario.html"><span class="las la-clipboard-list"></span>
-                        <span>Inventario</span></a>
-                </li>
-                <li>
-                    <a href="pedidos.html"><span class="las la-shopping-bag"></span>
-                        <span>Pedidos</span></a>
-                </li>
-                <li>
-                    <a href="editarInfo.html"><span class="las la-edit"></span>
-                        <span>Editar Informacion</span></a>
-                </li>
-                <li>
-                    <a href="usuarios.html"><span class="las la-user-circle"></span>
-                        <span>Usuarios</span></a>
-                </li>
-                <li>
-                    <a id="logout" href=""><span class="las la-sign-out-alt"></span>
-                        <span>Salir</span></a>
-                </li>
-            </ul>
-        </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li>
+            <a href="" class="active"
+              ><span class="las la-home"></span> <span>Inicio</span></a
+            >
+          </li>
+          <li>
+            <a href="catalogo.html"
+              ><span class="las la-store-alt"></span> <span>Catálogo</span></a
+            >
+          </li>
+          <li>
+            <a href="categorias.html"
+              ><span class="las la-icons"></span> <span>Categorías</span></a
+            >
+          </li>
+          <li>
+            <a href="inventario.php"
+              ><span class="las la-clipboard-list"></span>
+              <span>Inventario</span></a
+            >
+          </li>
+          <li>
+            <a href="pedidos.html"
+              ><span class="las la-shopping-bag"></span> <span>Pedidos</span></a
+            >
+          </li>
+          <li>
+            <a href="editarInfo.html"
+              ><span class="las la-edit"></span>
+              <span>Editar Informacion</span></a
+            >
+          </li>
+          <li>
+            <a href="usuarios.html"
+              ><span class="las la-user-circle"></span> <span>Usuarios</span></a
+            >
+          </li>
+          <li>
+            <a id="logout" href=""
+              ><span class="las la-sign-out-alt"></span> <span>Salir</span></a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="main-content">
-        <header>
-            <h2>
-                <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label>
-                Inicio
-            </h2>
-            
-            
+      <header>
+        <h2>
+          <label for="nav-toggle">
+            <span class="las la-bars"></span>
+          </label>
+          Inicio
+        </h2>
 
-            <div class="user-wrapper">
-                <img src="" width="" height="" alt="">
-                <div>
-                    <h4>Ing. Erasmo</h4>
-                    <small>Administrador</small>
-                </div>
+        <div class="user-wrapper">
+          <img src="" width="" height="" alt="" />
+          <div>
+            <h4>Ing. Erasmo</h4>
+            <small>Administrador</small>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1>54</h1>
+              <span>Customers</span>
             </div>
-        </header>
-
-        <main>
-            <div class="cards">
-                <div class="card-single">
-                    <div>
-                        <h1>54</h1>
-                        <span>Customers</span>
-                    </div>
-                    <div>
-                        <span class="las la-users"></span>
-                    </div>
-                </div>
-
-                <div class="card-single">
-                    <div>
-                        <h1>79</h1>
-                        <span>Proyectos</span>
-                    </div>
-                    <div>
-                        <span class="las la-clipboard"></span>
-                    </div>
-                </div>
-
-                <div class="card-single">
-                    <div>
-                        <h1>124</h1>
-                        <span>Orders</span>
-                    </div>
-                    <div>
-                        <span class="las la-shopping-bag"></span>
-                    </div>
-                </div>
-
-                <div class="card-single">
-                    <div>
-                        <h1>$1234</h1>
-                        <span>Income</span>
-                    </div>
-                    <div>
-                        <span class="lab la-google-wallet"></span>
-                    </div>
-                </div>
+            <div>
+              <span class="las la-users"></span>
             </div>
+          </div>
 
-            <div class="recent-grid">
-                <div class="projects">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Recent Projects</h3>
-
-                            <button>See all <span class="las la-arrow-right">
-                            </span></button>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table width="100%">
-                                    <thead>
-                                        <tr>
-                                            <td>Project Tittle</td>
-                                            <td>Departament</td>
-                                            <td>Status</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>UI/UX Desing</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status red"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td>
-                                                <span class="status green"></span>
-                                                in process
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop app</td>
-                                            <td>Mobile Team</td>
-                                            <td>
-                                                <span class="status yellow"></span>
-                                                pending
-                                            </td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>UI/UX Desing</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status red"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td>
-                                                <span class="status green"></span>
-                                                in process
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop app</td>
-                                            <td>Mobile Team</td>
-                                            <td>
-                                                <span class="status yellow"></span>
-                                                pending
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="customers">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>New customer</h3>
-
-                            <button>See all <span class="las la-arrow-right">
-                            </span></button>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" alt="">
-                                    <div>
-                                        <h4>Lewis S.</h4>
-                                        <small>CEO Excerp</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" alt="">
-                                    <div>
-                                        <h4>Lewis S.</h4>
-                                        <small>CEO Excerp</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" alt="">
-                                    <div>
-                                        <h4>Lewis S.</h4>
-                                        <small>CEO Excerp</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" alt="">
-                                    <div>
-                                        <h4>Lewis S.</h4>
-                                        <small>CEO Excerp</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" alt="">
-                                    <div>
-                                        <h4>Lewis S.</h4>
-                                        <small>CEO Excerp</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="card-single">
+            <div>
+              <h1>79</h1>
+              <span>Proyectos</span>
             </div>
+            <div>
+              <span class="las la-clipboard"></span>
+            </div>
+          </div>
 
-        </main>
+          <div class="card-single">
+            <div>
+              <h1>124</h1>
+              <span>Orders</span>
+            </div>
+            <div>
+              <span class="las la-shopping-bag"></span>
+            </div>
+          </div>
 
-        <script src="js/index.js"></script>
+          <div class="card-single">
+            <div>
+              <h1>$1234</h1>
+              <span>Income</span>
+            </div>
+            <div>
+              <span class="lab la-google-wallet"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="recent-grid">
+          <div class="projects">
+            <div class="card">
+              <div class="card-header">
+                <h3>Recent Projects</h3>
+
+                <button>
+                  See all <span class="las la-arrow-right"> </span>
+                </button>
+              </div>
+
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table width="100%">
+                    <thead>
+                      <tr>
+                        <td>Project Tittle</td>
+                        <td>Departament</td>
+                        <td>Status</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>UI/UX Desing</td>
+                        <td>UI Team</td>
+                        <td>
+                          <span class="status red"></span>
+                          review
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Web development</td>
+                        <td>Frontend</td>
+                        <td>
+                          <span class="status green"></span>
+                          in process
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Ushop app</td>
+                        <td>Mobile Team</td>
+                        <td>
+                          <span class="status yellow"></span>
+                          pending
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>UI/UX Desing</td>
+                        <td>UI Team</td>
+                        <td>
+                          <span class="status red"></span>
+                          review
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Web development</td>
+                        <td>Frontend</td>
+                        <td>
+                          <span class="status green"></span>
+                          in process
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Ushop app</td>
+                        <td>Mobile Team</td>
+                        <td>
+                          <span class="status yellow"></span>
+                          pending
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="customers">
+            <div class="card">
+              <div class="card-header">
+                <h3>New customer</h3>
+
+                <button>
+                  See all <span class="las la-arrow-right"> </span>
+                </button>
+              </div>
+
+              <div class="card-body">
+                <div class="customer">
+                  <div class="info">
+                    <img src="" alt="" />
+                    <div>
+                      <h4>Lewis S.</h4>
+                      <small>CEO Excerp</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                    <span class="las la-user-circle"></span>
+                    <span class="las la-comment"></span>
+                    <span class="las la-phone"></span>
+                  </div>
+                </div>
+
+                <div class="customer">
+                  <div class="info">
+                    <img src="" alt="" />
+                    <div>
+                      <h4>Lewis S.</h4>
+                      <small>CEO Excerp</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                    <span class="las la-user-circle"></span>
+                    <span class="las la-comment"></span>
+                    <span class="las la-phone"></span>
+                  </div>
+                </div>
+
+                <div class="customer">
+                  <div class="info">
+                    <img src="" alt="" />
+                    <div>
+                      <h4>Lewis S.</h4>
+                      <small>CEO Excerp</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                    <span class="las la-user-circle"></span>
+                    <span class="las la-comment"></span>
+                    <span class="las la-phone"></span>
+                  </div>
+                </div>
+
+                <div class="customer">
+                  <div class="info">
+                    <img src="" alt="" />
+                    <div>
+                      <h4>Lewis S.</h4>
+                      <small>CEO Excerp</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                    <span class="las la-user-circle"></span>
+                    <span class="las la-comment"></span>
+                    <span class="las la-phone"></span>
+                  </div>
+                </div>
+
+                <div class="customer">
+                  <div class="info">
+                    <img src="" alt="" />
+                    <div>
+                      <h4>Lewis S.</h4>
+                      <small>CEO Excerp</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                    <span class="las la-user-circle"></span>
+                    <span class="las la-comment"></span>
+                    <span class="las la-phone"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <script src="js/index.js"></script>
     </div>
-</body>
+  </body>
 </html>

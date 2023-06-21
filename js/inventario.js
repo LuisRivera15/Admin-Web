@@ -11,8 +11,8 @@ const dataTableOptions = {
   //scrollX: "2000px",
   lengthMenu: [5, 10, 15, 20, 100, 200, 500],
   columnDefs: [
-    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6, 7] },
-    { orderable: false, targets: [6, 7] },
+    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6, 7, 8] },
+    { orderable: false, targets: [6, 7, 8] },
     { searchable: false, targets: [1] },
     //{ width: "50%", targets: [0] }
   ],
@@ -20,9 +20,9 @@ const dataTableOptions = {
   destroy: true,
   language: {
     lengthMenu: "Mostrar _MENU_ registros por página",
-    zeroRecords: "Ningún usuario encontrado",
+    zeroRecords: "Ningún Producto de Venta Encontrado",
     info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
-    infoEmpty: "Ningún usuario encontrado",
+    infoEmpty: "Ningún Producto de Venta Encontrado",
     infoFiltered: "(filtrados desde _MAX_ registros totales)",
     search: "Buscar:",
     loadingRecords: "Cargando...",
@@ -40,93 +40,56 @@ const initDataTable = async () => {
     dataTable.destroy();
   }
 
-  await listUsers();
-
   dataTable = $("#datatable_ventas").DataTable(dataTableOptions);
+  tablaRenta = $("#datatable_renta").DataTable(dataTableOptions);
 
   dataTableIsInitialized = true;
 };
 
-const listUsers = async () => {
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
-    const users = await response.json();
+async function openModal(button) {
+  const productId = button.getAttribute("data-id");
 
-    let content = ``;
-    users.forEach((user, index) => {
-      content += `
-        <tr>
-            <td>${index + 1}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.address.city}</td>
-            <td>${user.company.name}</td>
-            <td><i class="fa-solid fa-check" style="color: green;"></i></td>
-            <td>  <button class="btn btn-sm btn-primary editar" data-user-id="${
-              user.id
-            }"><i class="fa-solid fa-pencil"></i></button></td>
-            <td>
-              
-                <button class="btn btn-sm btn-danger eliminar" data-user-id="${
-                  user.id
-                }"><i class="fa-solid fa-trash-can"></i></button>
-            </td>
-        </tr>`;
-    });
-    tableBody_ventas.innerHTML = content;
+  await $.ajax({
+    url: "php/obtener_producto.php",
+    method: "GET",
+    data: { id: productId },
+    dataType: "json",
+    success: function (response) {
+      const producto = response;
 
-    // Agregar eventos click a los botones "editar" y "eliminar"
-    document
-      .getElementById("botonAñadir")
-      .addEventListener("click", showAgregarModal);
-    const editarButtons = document.querySelectorAll(".editar");
-    const eliminarButtons = document.querySelectorAll(".eliminar");
+      // Cargar los datos del producto en los campos del modal
+      document.getElementById("modalEditarNombre").value = producto.Name;
+      document.getElementById("modalEditarCatalogueId").value =
+        producto.CategoryName;
+      document.getElementById("modalEditarStock").value = producto.Stock;
+      document.getElementById("modalEditarPrice").value = producto.Price;
+      document.getElementById("modalEditarCost").value = producto.Cost;
+      document.getElementById("modalEditarDiscountPct").value =
+        producto.DiscountPct;
+      document.getElementById("imgFirebase").src = producto.ImgPath;
 
-    editarButtons.forEach((button) => {
-      button.addEventListener("click", handleEditarButtonClick);
-    });
+      $.ajax({
+        url: "php/obtener_categorias.php",
+        method: "GET",
+        data: { id: producto.CatalogueId },
+        dataType: "json",
+        success: function (cat) {
+          console.log(cat);
 
-    eliminarButtons.forEach((button) => {
-      button.addEventListener("click", handleEliminarButtonClick);
-    });
-  } catch (ex) {
-    alert(ex);
-  }
-};
+          // Abrir el modal
+          $("#modalEditar").modal("show");
+        },
+        error: function (xhr, status, error) {
+          console.error(error);
+        },
+      });
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
+  });
+}
 
-const getUserById = async (userId) => {
-  try {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${userId}`
-    );
-    const user = await response.json();
-    return user;
-  } catch (error) {
-    console.error("Error al obtener los datos del usuario:", error);
-    return null;
-  }
-};
-
-const showAgregarModal = () => {
-  $("#agregarModal").modal("show");
-};
-
-const handleAgregarButtonClick = (event) => {
-  // Aquí puedes agregar la lógica para manejar el evento click del botón "Agregar"
-  showAgregarModal();
-  console.log("Botón Agregar clickeado");
-};
-
-const handleEditarButtonClick = (event) => {
-  const userId = event.target.dataset.userId;
-  // Lógica para editar el usuario con el ID especificado
-  console.log("Editar usuario con ID:", userId);
-};
-
-const handleEliminarButtonClick = (event) => {
-  const userId = event.target.dataset.userId;
-  // Lógica para eliminar el usuario con el ID especificado
-  console.log("Eliminar usuario con ID:", userId);
-};
-
-/**------------ESTA PARTA VA A HACER PARA LAS FUNCIONES DEL PRODUCTOS DE RENTA --------------------- */
+function openModalEliminar(button) {
+  $("#modalEliminar").modal("show");
+}
