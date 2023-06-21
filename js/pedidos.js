@@ -7,7 +7,7 @@ const dataTableOptions = {
   columnDefs: [
     { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
     { orderable: false, targets: [5, 6] },
-    { searchable: false, targets: [1] }
+    { searchable: false, targets: [1] },
     //{ width: "50%", targets: [0] }
   ],
   pageLength: 5,
@@ -24,9 +24,9 @@ const dataTableOptions = {
       first: "Primero",
       last: "Último",
       next: "Siguiente",
-      previous: "Anterior"
-    }
-  }
+      previous: "Anterior",
+    },
+  },
 };
 
 const initDataTable = async () => {
@@ -57,8 +57,12 @@ const listUsers = async () => {
             <td>${user.company.name}</td>
             <td><i class="fa-solid fa-check" style="color: green;"></i></td>
             <td>
-                <button class="btn btn-sm btn-primary editar" data-user-id="${user.id}"><i class="fa-solid fa-pencil"></i></button>
-                <button class="btn btn-sm btn-danger eliminar" data-user-id="${user.id}"><i class="fa-solid fa-trash-can"></i></button>
+                <button class="btn btn-sm btn-primary editar" data-user-id="${
+                  user.id
+                }"><i class="fa-solid fa-pencil"></i></button>
+                <button class="btn btn-sm btn-danger eliminar" data-user-id="${
+                  user.id
+                }"><i class="fa-solid fa-trash-can"></i></button>
             </td>
         </tr>`;
     });
@@ -67,7 +71,9 @@ const listUsers = async () => {
     // Agregar eventos click a los botones "editar" y "eliminar"
     const editarButtons = document.querySelectorAll(".editar");
     const eliminarButtons = document.querySelectorAll(".eliminar");
-
+    document
+      .getElementById("botonAñadir")
+      .addEventListener("click", handleAgregarButtonClick);
     editarButtons.forEach((button) => {
       button.addEventListener("click", handleEditarButtonClick);
     });
@@ -81,22 +87,25 @@ const listUsers = async () => {
 };
 
 const getUserById = async (userId) => {
-    try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
-      const user = await response.json();
-      return user;
-    } catch (error) {
-      console.error("Error al obtener los datos del usuario:", error);
-      return null;
-    }
-  };
-  
-  const handleEditarButtonClick = (event) => {
-  const userId = event.target.dataset.userId;
-  // Lógica para editar el usuario con el ID especificado
-  console.log("Editar usuario con ID:", userId);
+  try {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+    const user = await response.json();
+    return user;
+  } catch (error) {
+    console.error("Error al obtener los datos del usuario:", error);
+    return null;
+  }
 };
-  
+
+const handleAgregarButtonClick = (event) => {
+  $("#modalAgregar").modal("show");
+};
+
+const handleEditarButtonClick = (event) => {
+  $("#modalAgregar").modal("show");
+};
 
 const handleEliminarButtonClick = (event) => {
   const userId = event.target.dataset.userId;
