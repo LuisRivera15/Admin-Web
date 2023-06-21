@@ -100,17 +100,15 @@ const getUserById = async (userId) => {
 };
 
 const handleAgregarButtonClick = (event) => {
-  $("#modalAgregar").modal("show");
+  $("#agregarModal").modal("show");
 };
 
 const handleEditarButtonClick = (event) => {
-  $("#modalAgregar").modal("show");
+  $("#modalEditar").modal("show");
 };
 
 const handleEliminarButtonClick = (event) => {
-  const userId = event.target.dataset.userId;
-  // Lógica para eliminar el usuario con el ID especificado
-  console.log("Eliminar usuario con ID:", userId);
+  $("#modalEliminar").modal("show");
 };
 
 window.addEventListener("load", async () => {
