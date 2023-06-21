@@ -49,45 +49,8 @@ const initDataTable = async () => {
 async function openModal(button) {
   const productId = button.getAttribute("data-id");
 
-  await $.ajax({
-    url: "php/obtener_producto.php",
-    method: "GET",
-    data: { id: productId },
-    dataType: "json",
-    success: function (response) {
-      const producto = response;
-
-      // Cargar los datos del producto en los campos del modal
-      document.getElementById("modalEditarNombre").value = producto.Name;
-      document.getElementById("modalEditarCatalogueId").value =
-        producto.CategoryName;
-      document.getElementById("modalEditarStock").value = producto.Stock;
-      document.getElementById("modalEditarPrice").value = producto.Price;
-      document.getElementById("modalEditarCost").value = producto.Cost;
-      document.getElementById("modalEditarDiscountPct").value =
-        producto.DiscountPct;
-      document.getElementById("imgFirebase").src = producto.ImgPath;
-
-      $.ajax({
-        url: "php/obtener_categorias.php",
-        method: "GET",
-        data: { id: producto.CatalogueId },
-        dataType: "json",
-        success: function (cat) {
-          console.log(cat);
-
-          // Abrir el modal
-          $("#modalEditar").modal("show");
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
-        },
-      });
-    },
-    error: function (xhr, status, error) {
-      console.error(error);
-    },
-  });
+  // Abrir el modal
+  $("#modalEditar").modal("show");
 }
 
 function openModalEliminar(button) {
