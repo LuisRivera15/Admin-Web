@@ -43,7 +43,11 @@ const initDataTable = async () => {
 
 const listUsers = async () => {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch("https://medsantacruz.ezequiel4722.workers.dev/api/users", {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
     const users = await response.json();
 
     let content = ``;
@@ -51,18 +55,15 @@ const listUsers = async () => {
       content += `
         <tr>
             <td>${index + 1}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.address.city}</td>
-            <td>${user.company.name}</td>
-            <td><i class="fa-solid fa-check" style="color: green;"></i></td>
+            <td>${user.Name} ${user.FirstSurname}</td>
+            <td>${user.Email}</td>
+            <td>${user.Password}</td>
+            <td>${user.RegistrationDate}</td>
             <td>
-                <button class="btn btn-sm btn-primary editar" data-user-id="${
-                  user.id
-                }"><i class="fa-solid fa-pencil"></i></button>
-                <button class="btn btn-sm btn-danger eliminar" data-user-id="${
-                  user.id
-                }"><i class="fa-solid fa-trash-can"></i></button>
+                <button class="btn btn-sm btn-primary editar" data-user-id="${user.Id
+        }"><i class="fa-solid fa-pencil"></i></button>
+                <button class="btn btn-sm btn-danger eliminar" data-user-id="${user.Id
+        }"><i class="fa-solid fa-trash-can"></i></button>
             </td>
         </tr>`;
     });
@@ -104,12 +105,131 @@ const handleAgregarButtonClick = (event) => {
   $("#modalAgregar").modal("show");
 };
 
-const handleEditarButtonClick = (event) => {
+const createUser = async () => {
+  try {
+    const user = {
+      Name: document.getElementById("modalAgregarName").value,
+      FirstSurname: document.getElementById("modalAgregarFirstSurname").value,
+      LastSurname: document.getElementById("modalAgregarLastSurname").value,
+      Email: document.getElementById("modalAgregarEmail").value,
+      Password: document.getElementById("modalAgregarPassword").value,
+      RegistrationDate: document.getElementById("modalAgregarRegistrationDate").value,
+    };
+
+    const response = await fetch("https://medsantacruz.ezequiel4722.workers.dev/api/users/create", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+
+    const result = await response.json();
+
+    if (result) {
+      alert("Usuario creado exitosamente");
+      $("#modalAgregar").modal("hide");
+      await initDataTable();
+    } else {
+      alert("Error al crear el usuario");
+    }
+  } catch (error) {
+    console.error("Error al crear el usuario:", error);
+  }
+};
+
+const updateUser = async () => {
+  try {
+    const user = {
+      Id: document.getElementById("modalEditarId").value,
+      Name: document.getElementById("modalEditarName").value,
+      FirstSurname: document.getElementById("modalEditarFirstSurname").value,
+      LastSurname: document.getElementById("modalEditarLastSurname").value,
+      Email: document.getElementById("modalEditarEmail").value,
+      Password: document.getElementById("modalEditarPassword").value,
+      RegistrationDate: document.getElementById("modalEditarRegistrationDate").value,
+    };
+
+    const response = await fetch("https://medsantacruz.ezequiel4722.workers.dev/api/users/update", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+
+    const result = await response.json();
+
+    if (result) {
+      alert("Usuario actualizado exitosamente");
+      $("#modalEditar").modal("hide");
+      await initDataTable();
+    } else {
+      alert("Error al actualizar el usuario");
+    }
+  } catch (error) {
+    console.error("Error al actualizar el usuario:", error);
+  }
+};
+
+
+const deleteUser = async () => {
+  try {
+    const Id = document.getElementById("modalEliminarId").value;
+
+    const response = await fetch("https://medsantacruz.ezequiel4722.workers.dev/api/users/delete", {
+      method: "POST",
+      body: JSON.stringify({ Id }),
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+
+    const result = await response.json();
+
+    if (result) {
+      alert("Usuario eliminado exitosamente");
+      document.getElementById("modalEliminarId").value = "";
+      $("#modalEliminar").modal("hide");
+      await initDataTable();
+    } else {
+      alert("Error al eliminar el usuario");
+    }
+  } catch (error) {
+    console.error("Error al eliminar el usuario:", error);
+  }
+};
+
+const handleEditarButtonClick = async (event) => {
+  const userId = event.target.dataset.userId;
+  console.log(event.target.dataset.userId);
+
+  const response = await fetch(`https://medsantacruz.ezequiel4722.workers.dev/api/users/${userId}`, {
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
+
+  const user = await response.json();
+
+  console.log(user);
+
+  document.getElementById("modalEditarId").value = user.Id;
+  document.getElementById("modalEditarName").value = user.Name;
+  document.getElementById("modalEditarFirstSurname").value = user.FirstSurname;
+  document.getElementById("modalEditarLastSurname").value = user.LastSurname;
+  document.getElementById("modalEditarEmail").value = user.Email;
+  document.getElementById("modalEditarPassword").value = user.Password;
+  document.getElementById("modalEditarRegistrationDate").value = user.RegistrationDate;
+
+
   $("#modalEditar").modal("show");
 };
 
 const handleEliminarButtonClick = (event) => {
   $("#modalEliminar").modal("show");
+  const userIdField = document.getElementById("modalEliminarId");
+  userIdField.value = event.target.dataset.userId;
 };
 
 window.addEventListener("load", async () => {

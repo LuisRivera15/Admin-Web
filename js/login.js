@@ -36,7 +36,7 @@ loginForm.addEventListener("submit", (e) => {
         sessionStorage.setItem("token", JSON.stringify(token));
 
         // Redirigir a la página principal
-        window.location.href = "index.html";
+        window.location.href = "catalogo.html";
         localStorage.setItem("login_success", JSON.stringify(loginData));
       });
     } else {

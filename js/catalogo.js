@@ -3,10 +3,10 @@ let dataTableIsInitialized = false;
 
 const dataTableOptions = {
   //scrollX: "2000px",
-  lengthMenu: [5, 10, 15, 20, 100, 200, 500],
+  lengthMenu: [5, 10, 15],
   columnDefs: [
-    { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] },
-    { orderable: false, targets: [8, 9] },
+    { className: "centered", targets: [0, 1] },
+    // { orderable: false, targets: [8, 9] },
     { searchable: false, targets: [1] }
     //{ width: "50%", targets: [0] }
   ],
@@ -43,16 +43,10 @@ const initDataTable = async () => {
 
 const listUsers = async () => {
   try {
-    const requestPayload = {
-      catalogueId: "580739e4-051d-11ee-86d1-0a002700000a",
-      categoryId: "390f513f-0520-11ee-86d1-0a002700000a"
-    };
 
-    const response = await fetch("http://api.medicalsantacruz.com/catalogues/all", {
-      method: "POST",
-      body: JSON.stringify(requestPayload),
+    const response = await fetch("https://medsantacruz.ezequiel4722.workers.dev/api/catalogue", {
       headers: {
-        "Content-Type": "application/json"
+        'Access-Control-Allow-Origin': '*'
       }
     });
 
@@ -63,15 +57,7 @@ const listUsers = async () => {
       content += `
         <tr>
             <td>${index + 1}</td>
-            <td>${user.name}</td>
-            <td>${user.model}</td>
-            <td>${user.brand}</td>
-            <td>${user.description}</td>
-            <td>${user.imgPath}</td>
-            <td>${user.stock}</td>
-            <td>${user.price}</td>
-            <td>${user.discountPct}</td>
-            <td>${user.featured}</td>
+            <td>${user.Name}</td>
             <td>
             <!-- Button trigger modal EDITAR -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditar"><i class="fa-solid fa-pencil"></i>

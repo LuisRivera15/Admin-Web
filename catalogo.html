@@ -204,22 +204,61 @@
                 <tbody id="tableBody_users"></tbody>
               </table>
             </div>
-          </div>
-        </div>
-      </main>
-      <!-- Bootstrap-->
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"
-      ></script>
-      <!-- jQuery -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <!-- DataTable -->
-      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-      <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-      <script src="js/index.js"></script>
-      <script src="js/catalogo.js"></script>
+
+            <!-- Modal AGREGAR-->
+            <div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="agregarModalLabel">Agregar Catalogo</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Contenido del formulario de agregar -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="guardarButton">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <table id="datatable_users" class="table table-striped">
+                            <caption>
+                                Tabla de Catálogos
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th class="centered">#</th>
+                                    <th class="centered">Name</th>
+                                    <th class="start">Options</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody_users"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <!-- Bootstrap-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- DataTable -->
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/catalogo.js"></script>
+
     </div>
   </body>
 </html>
